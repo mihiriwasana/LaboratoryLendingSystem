@@ -1,0 +1,310 @@
+/* =========================================================
+   Laboratory Lending System - global styles
+   ========================================================= */
+
+:root {
+    --brand-teal: #1f5c60;
+    --brand-teal-dark: #174649;
+    --brand-heading: #1d4a50;
+    --brand-coral: #e8877b;
+    --brand-deep: #153b41;
+    --text-muted: #5f6b6d;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #212529;
+}
+
+/* ========== LOGIN PAGE: brand panel, login box, buttons ========== */
+
+.brand-panel {
+    background: linear-gradient(90deg, var(--brand-coral) 0%, #9b6c67 30%, #5b5653 55%, var(--brand-deep) 100%);
+    color: #fff;
+    padding: 2.5rem 2.75rem;
+}
+
+.brand-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.brand-divider {
+    border-top: 2px solid rgba(255, 255, 255, 0.6);
+    opacity: 1;
+    margin: 0;
+}
+
+.brand-tagline {
+    font-size: clamp(2.25rem, 3.6vw, 3.25rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 1rem;
+}
+
+.login-heading {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--brand-heading);
+    margin-bottom: 0.4rem;
+}
+
+.login-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 2.25rem;
+}
+
+.login-box .form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.login-box .form-control {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+}
+
+.login-box .form-control:focus {
+    border-color: var(--brand-teal);
+    box-shadow: 0 0 0 0.2rem rgba(31, 92, 96, 0.2);
+}
+
+.forgot-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.btn-brand {
+    background-color: var(--brand-teal);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.7rem;
+    border-radius: 6px;
+}
+
+.btn-brand:hover,
+.btn-brand:focus,
+.btn-brand:disabled {
+    background-color: var(--brand-teal-dark);
+    color: #fff;
+}
+/* Buttons side by side in pop-ups and the Add / Edit form: same height */
+.modal-footer .btn,
+.form-card .btn {
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+}
+
+/* Link-style buttons (<a class="btn">): centre the text like a real <button> */
+a.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+/* On small screens the brand panel becomes a slim header */
+@media (max-width: 991.98px) {
+    .brand-panel {
+        padding: 1.5rem;
+    }
+}
+
+
+/* ========== SHARED (login + admin): alert icons ========== */
+.alert-icon {
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    font-weight: 600;
+}
+.alert-icon::before {
+    content: "";
+    flex: 0 0 1.1em;
+    height: 1.1em;
+    margin-top: .1em;
+    background-color: currentColor;
+    -webkit-mask: var(--alert-svg) center / contain no-repeat;
+            mask: var(--alert-svg) center / contain no-repeat;
+}
+/* warning triangle (danger / warning) */
+.alert-danger.alert-icon, .alert-warning.alert-icon {
+    --alert-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/%3E%3C/svg%3E");
+}
+/* check circle (success) */
+.alert-success.alert-icon {
+    --alert-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3E%3C/svg%3E");
+}
+/* info circle (info) */
+.alert-info.alert-icon {
+    --alert-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/%3E%3C/svg%3E");
+}
+
+/* ========== SHARED (login + admin): red * on required labels ========== */
+.form-label.required::after,
+label.required::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: 700;
+}
+.required-note {
+    font-size: .8rem;
+    color: var(--text-muted);
+}
+.required-note::before {
+    content: "* ";
+    color: #dc3545;
+    font-weight: 700;
+}
+
+/* ========== SHARED (login + admin): centred alert close button ========== */
+.alert-dismissible .btn-close {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: .5rem;
+}
+
+
+/* =========================================================
+   ADMIN PAGE: application shell (sidebar + top bar)
+   ========================================================= */
+.app-body { background: #f4f5f3; }
+
+.app-shell { display: flex; min-height: 100vh; }
+
+.app-sidebar {
+    width: 220px;
+    flex: 0 0 220px;
+    background: var(--brand-deep);
+    color: #fff;
+    padding: 1rem .75rem;
+}
+.sidebar-brand { display: flex; align-items: center; gap: .65rem; padding: .25rem .5rem 1.25rem; }
+.sidebar-logo {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--brand-teal); font-size: 1.1rem;
+}
+.sidebar-brand-title { font-weight: 700; font-size: .9rem; line-height: 1.1; }
+.sidebar-brand-sub { font-size: .72rem; opacity: .7; }
+.sidebar-link {
+    display: flex; align-items: center; gap: .75rem;
+    padding: .7rem .9rem; margin-bottom: .2rem; border-radius: 8px;
+    color: rgba(255,255,255,.9); text-decoration: none;
+    font-weight: 600; font-size: 1rem;
+}
+.sidebar-icon { width: 20px; height: 20px; flex: 0 0 20px; }
+.sidebar-link:hover { background: rgba(255,255,255,.1); color: #fff; }
+.sidebar-link.active {
+    background: var(--brand-teal); color: #fff; font-weight: 700;
+    box-shadow: inset 4px 0 0 var(--brand-coral);   /* coral bar on the left of the current page */
+}
+
+
+.app-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.app-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .75rem 1.5rem; background: #fff; border-bottom: 3px solid #e6e8e6;
+}
+.topbar-role { font-size: .72rem; }
+.user-avatar {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #dcebea; color: var(--brand-heading); font-weight: 700; font-size: .85rem;
+}
+.app-content { padding: 1.5rem; flex: 1; }
+
+@media (max-width: 767.98px) {
+    .app-shell { flex-direction: column; }
+    .app-sidebar { width: 100%; flex-basis: auto; }
+}
+
+/* ===== ADMIN PAGE: page headings ===== */
+.page-title { font-size: 2rem; font-weight: 300; color: var(--brand-heading); margin-bottom: .15rem; }
+.page-subtitle { font-size: .85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+
+/* ===== ADMIN PAGE: summary cards ===== */
+.stat-card {
+    background: #fff; border: 1px solid #dee2e6; border-top: 3px solid #6c757d;
+    padding: .9rem 1.1rem;
+}
+.stat-total { border-top-color: var(--brand-teal); }
+.stat-active { border-top-color: #2e7d4f; }
+.stat-inactive { border-top-color: #6c757d; }
+.stat-label { font-size: .8rem; color: var(--text-muted); }
+.stat-value { font-size: 2rem; font-weight: 300; line-height: 1.2; }
+
+/* ===== ADMIN PAGE: staff table + status pills ===== */
+.table-card { background: #fff; border: 1px solid #dee2e6; border-radius: 4px; overflow-x: auto; }
+.table-card thead th { background: #eef1ef; font-size: .8rem; font-weight: 700; border-bottom: 0; }
+.table-card td, .table-card th { padding: .7rem 1rem; }
+.table-card a, .table-card .btn-link { color: var(--brand-teal-dark); }
+
+/* Edit / Deactivate / Reset Password: same size, line height and alignment */
+.table-card td a,
+.table-card td .btn-link {
+    font-size: 1rem;
+    line-height: 1.5;
+    vertical-align: baseline;
+    text-decoration: underline;
+}
+/* Keep Reset Password in the same column whether the word is Activate or Deactivate */
+.table-card .action-status {
+    min-width: 5.5rem;
+    text-align: left;
+    margin-left: .75rem;
+}
+
+
+.status-pill {
+    display: inline-block; min-width: 5.5rem; text-align: center;
+    padding: .2rem .8rem; border-radius: 999px; font-size: .78rem; font-weight: 600;
+}
+.status-active { background: #dff0e5; color: #1f6b3d; }
+.status-inactive { background: #e9ecef; color: #495057; }
+
+/* ===== ADMIN PAGE: Add / Edit form card ===== */
+.form-card {
+    background: #fff; border: 1px solid #dee2e6; border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); padding: 1.25rem 1.5rem;
+}
+.form-card-title { font-size: 1.25rem; font-weight: 300; color: var(--brand-heading); margin-bottom: 1rem; }
+.form-card .form-label, .modal .form-label { font-size: .85rem; font-weight: 700; margin-bottom: .3rem; }
+.form-card .form-control:focus, .modal .form-control:focus {
+    border-color: var(--brand-teal); box-shadow: 0 0 0 .2rem rgba(31, 92, 96, .2);
+}
+
+/* ===== ADMIN PAGE: field error message with warning icon ===== */
+.field-error { font-weight: 600; }
+.field-error::before {
+    content: "";
+    display: inline-block; width: 1em; height: 1em; margin-right: .35rem; vertical-align: -.15em;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ===== STAFF DASHBOARD: card colours, pills, headings, greyed-out menu items ===== */
+.stat-available { border-top-color: #2e7d4f; }
+.stat-onloan    { border-top-color: var(--brand-teal); }
+.stat-duesoon   { border-top-color: #b7791f; }
+.stat-overdue   { border-top-color: #c0392b; }
+
+.pill-overdue { background: #fbe3e1; color: #a52a1f; }
+.pill-duesoon { background: #fbefd5; color: #8a5a00; }
+.pill-available { background: #dff0e5; color: #1f6b3d; }
+.pill-onloan    { background: #dcebea; color: var(--brand-heading); }
+
+
+.section-title { font-size: 1.25rem; font-weight: 300; color: var(--brand-heading); margin-bottom: .6rem; }
+
+.sidebar-link.disabled { opacity: .6; cursor: not-allowed; }
+.sidebar-link.disabled:hover { background: transparent; }
+

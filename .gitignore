@@ -1,0 +1,2 @@
+# Local credentials - never commit (NFR01)
+app/config/env.php
