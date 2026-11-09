@@ -100,7 +100,7 @@ $err = $form['errors'];
     </table>
 </div>
 
-<?php /* ===== 4. Register / Edit form (only shown after Register, Edit, or a failed save) ===== */ ?>
+<?php /* ===== 4. Register / Edit form (only shown after Register, Edit, or a failed save.) ===== */ ?>
 <?php if ($form['open']): ?>
 <div class="form-card" id="equipment-form">
     <h2 class="form-card-title"><?= $isEdit ? 'Edit Equipment' : 'Register Equipment' ?></h2>
